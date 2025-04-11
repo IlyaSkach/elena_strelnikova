@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Елена Стрельникова</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+	<header class="header">
+		<div class="container">
+			<div class="header__wrapper">
+				<div class="logo">
+					<div class="logo__icon">
+						<svg width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<g clip-path="url(#clip0_2_826)">
+								<path
+									d="M17.7375 5.285C17.1142 2.26625 14.3367 0 11 0C8.35083 0 6.05 1.435 4.90417 3.535C2.145 3.815 0 6.04625 0 8.75C0 11.6462 2.46583 14 5.5 14H17.4167C19.9467 14 22 12.04 22 9.625C22 7.315 20.1208 5.4425 17.7375 5.285Z"
+									fill="white" />
+							</g>
+							<defs>
+								<clipPath id="clip0_2_826">
+									<rect width="22" height="14" fill="white" />
+								</clipPath>
+							</defs>
+						</svg>
+
+					</div>
+					<span class="logo__text">Елена Стрельникова</span>
+				</div>
+				<div class="burger-menu">
+					<div class="burger-icon">
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+				</div>
+				<div class="mobile-menu">
+					<div class="social mobile-social">
+						<a href="#" class="social__link">
+							<i class="fab fa-instagram"></i>
+						</a>
+						<a href="#" class="social__link">
+							<i class="fab fa-whatsapp"></i>
+						</a>
+						<a href="#" class="social__link">
+							<i class="fab fa-vk"></i>
+						</a>
+						<a href="#" class="social__link">
+							<i class="fab fa-telegram"></i>
+						</a>
+					</div>
+					<a href="#" class="btn mobile-btn">Оставить заявку</a>
+				</div>
+				<div class="social desktop-social">
+					<a href="#" class="social__link">
+						<i class="fab fa-instagram"></i>
+					</a>
+					<a href="#" class="social__link">
+						<i class="fab fa-whatsapp"></i>
+					</a>
+					<a href="#" class="social__link">
+						<i class="fab fa-vk"></i>
+					</a>
+					<a href="#" class="social__link">
+						<i class="fab fa-telegram"></i>
+					</a>
+				</div>
+				<a href="#" class="btn">Оставить заявку</a>
+			</div>
+		</div>
+	</header>
+	<main>
+		<div class="container">
+			<section class="hero">
+				<div class="hero__organization">Организация мероприятий</div>
+				<img src="assets/Images/poster.png" alt="Елена Стрельникова" class="hero__poster">
+				<div class="hero__arrow-container">
+					<svg width="322" height="16" viewBox="0 0 322 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path opacity="0.3"
+							d="M1 7C0.447715 7 0 7.44772 0 8C0 8.55228 0.447715 9 1 9V7ZM321.707 8.70711C322.098 8.31658 322.098 7.68342 321.707 7.29289L315.343 0.928932C314.953 0.538408 314.319 0.538408 313.929 0.928932C313.538 1.31946 313.538 1.95262 313.929 2.34315L319.586 8L313.929 13.6569C313.538 14.0474 313.538 14.6805 313.929 15.0711C314.319 15.4616 314.953 15.4616 315.343 15.0711L321.707 8.70711ZM1 9H321V7H1V9Z"
+							fill="white" />
+					</svg>
+				</div>
+			</section>
+
+			<section class="video-section">
+				<div class="video-text-mobile">
+					Чтобы понять, какая я в работе,<br>
+					предлагаю посмотреть видео
+				</div>
+				<div class="video-container">
+
+					<div class="video-placeholder">
+
+						<button class="play-button">
+							<svg width="63" height="63" viewBox="0 0 63 63" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<g clip-path="url(#clip0_76_2)">
+									<path
+										d="M31.5 0C14.112 0 0 14.112 0 31.5C0 48.888 14.112 63 31.5 63C48.888 63 63 48.888 63 31.5C63 14.112 48.888 0 31.5 0ZM25.2 45.675V17.325L44.1 31.5L25.2 45.675Z"
+										fill="white" />
+								</g>
+								<defs>
+									<clipPath id="clip0_76_2">
+										<rect width="63" height="63" fill="white" />
+									</clipPath>
+								</defs>
+							</svg>
+						</button>
+						<div class="video-text-desktop">
+							Чтобы понять, какая я в работе,<br>
+							предлагаю посмотреть видео
+						</div>
+					</div>
+					<video id="promo-video" controls style="display: none;">
+						<source src="assets/Video/vidos.mp4" type="video/mp4">
+						Ваш браузер не поддерживает видео.
+					</video>
+				</div>
+			</section>
+
+			<section class="services-section">
+				<div class="services-container">
+					<div class="services-content">
+						<div class="services-image">
+							<img src="assets/Images/pic.png" alt="Елена Стрельникова">
+						</div>
+						<div class="vertical-divider">
+							<svg width="1" height="360" viewBox="0 0 1 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<rect width="1" height="360" fill="#D9D9D9" />
+							</svg>
+						</div>
+						<div class="services-info">
+							<h2 class="services-title">Виды работ:</h2>
+							<div class="services-categories">
+								<div class="service-category">концерты</div>
+								<div class="service-category">презентации</div>
+								<div class="service-category">фестивали</div>
+								<div class="service-category">награждения</div>
+								<div class="service-category wide">корпоративные мероприятия</div>
+								<div class="service-category wide">частные мероприятия</div>
+							</div>
+							<div class="services-buttons">
+								<a href="#" class="service-btn primary-btn">Оставить заявку</a>
+								<a href="#" class="service-btn secondary-btn">Узнать подробнее</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Здесь будет дополнительный контент -->
+		</div>
+	</main>
+	<script src="script.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			const burgerMenu = document.querySelector('.burger-menu');
+			const mobileMenu = document.querySelector('.mobile-menu');
+
+			burgerMenu.addEventListener('click', function () {
+				this.classList.toggle('active');
+				if (mobileMenu.style.display === 'block') {
+					mobileMenu.style.display = 'none';
+				} else {
+					mobileMenu.style.display = 'block';
+				}
+			});
+
+			// Видео функционал
+			const playButton = document.querySelector('.play-button');
+			const videoPlaceholder = document.querySelector('.video-placeholder');
+			const promoVideo = document.getElementById('promo-video');
+
+			playButton.addEventListener('click', function () {
+				videoPlaceholder.style.display = 'none';
+				promoVideo.style.display = 'block';
+				promoVideo.play();
+			});
+		});
+	</script>
+</body>
+
+</html>
