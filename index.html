@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<title>Елена Стрельникова</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -724,33 +724,7 @@
 		<!-- Здесь будет дополнительный контент -->
 		</div>
 	</main>
-	<script src="script.js"></script>
-	<script>
-		document.addEventListener('DOMContentLoaded', function () {
-			const burgerMenu = document.querySelector('.burger-menu');
-			const mobileMenu = document.querySelector('.mobile-menu');
 
-			burgerMenu.addEventListener('click', function () {
-				this.classList.toggle('active');
-				if (mobileMenu.style.display === 'block') {
-					mobileMenu.style.display = 'none';
-				} else {
-					mobileMenu.style.display = 'block';
-				}
-			});
-
-			// Видео функционал
-			const playButton = document.querySelector('.play-button');
-			const videoPlaceholder = document.querySelector('.video-placeholder');
-			const promoVideo = document.getElementById('promo-video');
-
-			playButton.addEventListener('click', function () {
-				videoPlaceholder.style.display = 'none';
-				promoVideo.style.display = 'block';
-				promoVideo.play();
-			});
-		});
-	</script>
 
 	<!-- Футер сайта -->
 	<footer class="footer">
@@ -830,6 +804,8 @@
 			</div>
 		</div>
 	</footer>
+
+	<script src="script.js"></script>
 </body>
 
 </html>
