@@ -78,6 +78,7 @@ body {
   color: #333;
   text-decoration: none;
   transition: all 0.3s ease;
+  position: relative;
 }
 
 .social__link i {
@@ -112,8 +113,41 @@ body {
   text-decoration: none;
 }
 
+.phone-btn {
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.phone-btn::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 8px;
+}
+
 .btn:hover {
   background-color: #c42727;
+}
+
+@media (max-width: 640px) {
+  .phone-btn {
+    width: 100%;
+    font-size: 12px;
+    padding: 8px 15px;
+  }
+
+  .phone-btn::before {
+    width: 14px;
+    height: 14px;
+    margin-right: 6px;
+  }
 }
 
 /* Main Content */
@@ -1893,18 +1927,33 @@ main {
   }
 
   .corporate-grid-row {
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 10px;
     height: auto;
   }
 
   .corporate-item {
-    height: 200px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+
+  .corporate-item img {
+    width: 100%;
+    height: auto;
+    display: block;
     border-radius: 10px;
   }
 
   .corporate-item-small:nth-child(3) {
     display: none;
+  }
+
+  .corporate-item-small:nth-child(2) {
+    width: 60%;
+    margin: 0 auto;
   }
 }
 
@@ -3180,14 +3229,9 @@ main {
     margin-bottom: 5px;
   }
 
-  /* Скрываем навигационные стрелки на мобильных */
-  .testimonial-nav {
-    display: none;
-  }
-
-  /* Скрываем индикаторы на мобильных */
-  .testimonial-indicators {
-    display: none;
+  /* Отображаем элементы управления слайдером на мобильных */
+  .testimonial-mobile-controls {
+    display: flex;
   }
 }
 
@@ -3305,13 +3349,50 @@ main {
   box-sizing: border-box;
   border: 1px solid rgb(255, 255, 255);
   border-radius: 5px;
-
   transition: all 0.3s;
+  position: relative;
 }
 
 .social-icon:hover {
   background-color: #db212c;
   transform: scale(1.1);
+}
+
+.instagram-icon:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 12px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-size: 12px;
+  border-radius: 4px;
+  white-space: nowrap;
+  z-index: 100;
+  width: max-content;
+  pointer-events: none;
+  opacity: 1;
+}
+
+.instagram-icon::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 12px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-size: 12px;
+  border-radius: 4px;
+  white-space: nowrap;
+  z-index: 100;
+  width: max-content;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .footer-phone a {
@@ -3362,7 +3443,7 @@ main {
   .footer-mentor {
     /* position: static; */
     /* margin-top: 80px; */
-    bottom: -175px;
+    bottom: -190px;
     left: 0px;
   }
 
@@ -3374,4 +3455,303 @@ main {
   .footer-meta {
     max-width: 100%;
   }
+}
+
+/* Стили для модального окна и карусели */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal.show {
+  display: block;
+  opacity: 1;
+}
+
+.modal-content {
+  background-image: url("assets/Images/herobg.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #333;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #666;
+  width: 80%;
+  max-width: 900px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.close-modal {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+  color: #fff;
+  text-decoration: none;
+}
+
+.modal h2 {
+  color: #fff;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Стили для карусели */
+.media-carousel {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.carousel-slides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 0 10px;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  max-height: 70vh;
+}
+
+.carousel-prev,
+.carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-prev {
+  left: 10px;
+}
+
+.carousel-next {
+  right: 10px;
+}
+
+.carousel-dots {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.carousel-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  background-color: #555;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.carousel-dot.active {
+  background-color: #fff;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    margin: 10% auto;
+    padding: 15px;
+  }
+
+  .carousel-prev,
+  .carousel-next {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .carousel-dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 4px;
+  }
+}
+
+/* Стили для секции отзывов */
+
+/* Стили для мобильного слайдера отзывов */
+.testimonial-mobile-controls {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  width: 100%;
+}
+
+.testimonial-prev-btn,
+.testimonial-next-btn {
+  background-color: #e2000f;
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+.testimonial-prev-btn:hover,
+.testimonial-next-btn:hover {
+  background-color: #b5000c;
+}
+
+.testimonial-mobile-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.testimonial-mobile-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.testimonial-mobile-dot.active {
+  background-color: #e2000f;
+}
+
+@media screen and (max-width: 768px) {
+  .testimonials-grid {
+    display: none;
+  }
+
+  .carousel-slide {
+    display: flex;
+  }
+
+  .testimonials-grid.mobile-slider {
+    display: block;
+    width: 100%;
+    overflow: visible;
+    height: auto;
+  }
+
+  .testimonial-item {
+    display: none;
+    margin-bottom: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    position: relative;
+    left: 0;
+    right: 0;
+    transform: none;
+    background-color: white;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+
+  .testimonial-item.active {
+    display: block;
+    opacity: 1;
+    animation: fadeIn 0.5s forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .testimonial-mobile-controls {
+    display: flex;
+    margin-top: 20px;
+  }
+}
+
+.instagram-icon .social__link:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 12px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-size: 12px;
+  border-radius: 4px;
+  white-space: nowrap;
+  z-index: 100;
+  width: max-content;
+  pointer-events: none;
+  opacity: 1;
+}
+
+.instagram-icon .social__link::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 12px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-size: 12px;
+  border-radius: 4px;
+  white-space: nowrap;
+  z-index: 100;
+  width: max-content;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
