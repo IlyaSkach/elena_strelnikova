@@ -522,8 +522,15 @@ main {
 
   .main-case {
     height: auto;
-    aspect-ratio: 1 / 1;
-    margin-bottom: 5px;
+    aspect-ratio: unset;
+    margin-bottom: 15px;
+  }
+
+  .main-case img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
   }
 
   /* Стили для второго ряда */
@@ -1227,8 +1234,15 @@ main {
 
   .main-case {
     height: auto;
-    aspect-ratio: 1 / 1;
-    margin-bottom: 5px;
+    aspect-ratio: unset;
+    margin-bottom: 15px;
+  }
+
+  .main-case img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
   }
 
   .case-grid-row .case-item {
@@ -2713,14 +2727,14 @@ main {
   }
 
   .award-year {
-    display: none;
+    display: block;
   }
 
   .about-year-two {
-    display: none;
+    display: block;
   }
   .about-year {
-    display: none;
+    display: block;
   }
   .media-button {
     padding: 10px 30px;
@@ -2751,10 +2765,14 @@ main {
   }
 
   .about-year-two {
-    display: none;
+    display: block;
+    top: -18px;
+    right: 0;
   }
   .about-year {
-    display: none;
+    display: block;
+    top: 345px;
+    right: 62px;
   }
   .award-text {
     font-size: 15px;
@@ -2779,7 +2797,8 @@ main {
   }
 
   .award-year {
-    display: none;
+    display: block;
+    margin-right: -6px;
   }
 
   .prof-svg {
@@ -2975,7 +2994,7 @@ main {
 }
 
 .testimonials-title-name {
-  color: #992e2e;
+  color: #333333;
   font-weight: 500;
 }
 
@@ -3176,6 +3195,7 @@ main {
 
   .testimonials-title {
     font-size: 22px;
+    line-height: 20px;
   }
 
   .testimonials-container {
