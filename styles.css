@@ -284,10 +284,24 @@ main {
   display: none;
 }
 
-/* Медиа-запросы для адаптивности */
-
-/* Большие экраны (от 1200px и выше) */
-@media (min-width: 1200px) {
+.prof-label {
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 110%;
+  text-align: center;
+  position: absolute;
+  z-index: 2;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -10%);
+  width: 100%;
+  white-space: normal;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
 }
 
 /* Средние экраны (до 960px) */
@@ -646,6 +660,39 @@ main {
     line-height: 1.2;
     width: 100%;
   }
+
+  .awards-certificate {
+    width: 190px;
+    height: auto;
+    padding-bottom: 10px;
+    max-height: none;
+  }
+
+  .certificate-slider {
+    max-height: none;
+    width: 100%;
+    max-width: 190px;
+  }
+
+  .certificate-slider-wrapper {
+    max-height: none;
+    height: auto;
+  }
+
+  .certificate-slide {
+    max-height: none;
+  }
+
+  .certificate-slide img {
+    max-height: 220px;
+  }
+
+  .certificate-slider-controls {
+    margin-top: 15px;
+    padding-bottom: 8px;
+    position: relative;
+    z-index: 5;
+  }
 }
 
 /* Мобильные устройства (до 320px) */
@@ -666,6 +713,7 @@ main {
   }
 
   .prof-label {
+    top: 30%;
     font-size: 11px;
     line-height: 1.2;
   }
@@ -792,6 +840,13 @@ main {
   max-width: none;
   transform: translateY(-60px);
   z-index: 2;
+  opacity: 0;
+  transition: opacity 2.5s ease-in-out;
+  will-change: opacity;
+}
+
+.services-image img.fade-in {
+  opacity: 1;
 }
 
 .services-info {
@@ -840,6 +895,12 @@ main {
 
 .services-buttons {
   display: flex;
+  gap: 15px;
+  margin-top: 70px;
+}
+
+.services-mobile {
+  display: none;
   gap: 15px;
   margin-top: 70px;
 }
@@ -974,9 +1035,14 @@ main {
   }
 
   .services-buttons {
+    display: none;
     margin-top: 40px;
     flex-direction: column;
   }
+}
+
+/* Мобильные устройства (до 320px) */
+@media (max-width: 320px) {
 }
 
 /* Секция с выполненными кейсами */
@@ -1075,6 +1141,15 @@ main {
   max-width: 100%;
   height: auto;
   margin-bottom: 20px;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 0.7s ease-out,
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cases-container svg.animate {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .case-small-group {
@@ -1969,6 +2044,10 @@ main {
     width: 60%;
     margin: 0 auto;
   }
+
+  .corporate-grid-row .corporate-item-small:nth-child(2) {
+    display: none;
+  }
 }
 
 /* Секция с частными мероприятиями */
@@ -2300,12 +2379,19 @@ main {
   font-size: 13px;
   font-weight: 900;
   line-height: 23px;
-  transition: background-color 0.3s;
+  transition: all 0.3s ease;
   text-decoration: none;
 }
 
 .offer-card-button:hover {
-  background-color: #c01923;
+  background: linear-gradient(
+    90deg,
+    rgb(117, 18, 24) 0%,
+    rgb(219, 33, 44) 100%
+  );
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
 }
 
 @media (max-width: 960px) {
@@ -2470,14 +2556,34 @@ main {
   overflow: visible;
 }
 
+@keyframes slideUpAndScale {
+  0% {
+    transform: translateX(-50%) translateY(100px);
+    opacity: 0;
+  }
+  70% {
+    transform: translateX(-50%) translateY(0) scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+}
+
 .about-photo-img {
   position: absolute;
   bottom: -168px;
   left: 50%;
   transform: translateX(-50%);
   max-height: none;
-
   width: auto;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.about-photo-img.animate {
+  animation: slideUpAndScale 1.8s ease-out forwards;
 }
 
 .about-professional {
@@ -2509,27 +2615,6 @@ main {
   z-index: 0;
   overflow: visible;
   max-width: 100% !important;
-}
-
-.prof-label {
-  color: rgb(255, 255, 255);
-
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 110%;
-  text-align: center;
-  position: absolute;
-  z-index: 2;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -10%);
-  width: 100%;
-  white-space: normal;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
 }
 
 .about-name {
@@ -2689,6 +2774,8 @@ main {
   }
 
   .prof-label {
+    top: 20%;
+
     font-size: 14px;
     transform: translate(-50%, 0%);
   }
@@ -2751,6 +2838,7 @@ main {
   }
 
   .prof-label {
+    top: 30%;
     font-size: 12px;
     line-height: 1.2;
   }
@@ -2856,6 +2944,7 @@ main {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
+  box-sizing: border-box;
 }
 
 .awards-photo {
@@ -2874,15 +2963,21 @@ main {
 
 .awards-certificate {
   width: 269px;
-  height: auto;
+  height: 348px;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 269px;
 }
 
 .awards-certificate-img {
   width: 100%;
   height: auto;
   object-fit: contain;
+  max-width: 100%;
 }
 
 @media (max-width: 960px) {
@@ -2921,6 +3016,36 @@ main {
   .awards-certificate {
     width: 220px;
     height: auto;
+    max-width: 220px;
+    max-height: 300px;
+  }
+
+  .certificate-slider {
+    width: 100%;
+    max-width: 220px;
+  }
+
+  .certificate-slider-wrapper {
+    max-width: 220px;
+  }
+
+  .certificate-slider-prev,
+  .certificate-slider-next {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+  }
+
+  .certificate-slider-dots {
+    gap: 6px;
+    margin: 0 8px;
+    max-width: 140px;
+  }
+
+  .certificate-slider-dot {
+    width: 6px;
+    height: 6px;
+    min-width: 6px;
   }
 }
 
@@ -2964,6 +3089,62 @@ main {
   .awards-certificate {
     width: 190px;
     height: auto;
+    padding-bottom: 10px;
+    max-height: none;
+  }
+
+  .certificate-slider {
+    max-height: none;
+    width: 100%;
+    max-width: 190px;
+  }
+
+  .certificate-slider-wrapper {
+    max-height: none;
+    height: auto;
+  }
+
+  .certificate-slide {
+    max-height: none;
+  }
+
+  .certificate-slide img {
+    max-height: 220px;
+  }
+
+  .certificate-slider-controls {
+    margin-top: 15px;
+    padding-bottom: 8px;
+    position: relative;
+    z-index: 5;
+  }
+
+  .certificate-slider-prev,
+  .certificate-slider-next {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    margin: 0 5px;
+  }
+
+  .certificate-slider-prev svg,
+  .certificate-slider-next svg {
+    width: 16px;
+    height: 16px;
+    position: relative;
+    top: 0;
+  }
+
+  .certificate-slider-dots {
+    gap: 6px;
+    max-width: 120px;
+    padding: 0 3px;
+  }
+
+  .certificate-slider-dot {
+    width: 6px;
+    height: 6px;
+    min-width: 6px;
   }
 }
 
@@ -3774,4 +3955,185 @@ main {
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.3s ease;
+}
+
+/* Стили для слайдера сертификатов */
+.certificate-slider {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  max-width: 269px;
+}
+
+.certificate-slider-wrapper {
+  width: 100%;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  max-height: 280px;
+  display: flex;
+  justify-content: center;
+}
+
+.certificate-slide {
+  width: 100%;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  text-align: center;
+  max-height: 280px;
+}
+
+.certificate-slide img {
+  max-height: 280px;
+  width: auto;
+  object-fit: contain;
+}
+
+.certificate-slide.active {
+  display: block;
+  opacity: 1;
+}
+
+.certificate-slider-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.certificate-slider-prev,
+.certificate-slider-next {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  padding: 0;
+}
+
+.certificate-slider-prev svg,
+.certificate-slider-next svg {
+  width: 18px;
+  height: 18px;
+}
+
+.certificate-slider-prev:hover,
+.certificate-slider-next:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.certificate-slider-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 10px;
+  flex-wrap: wrap;
+  max-width: 150px;
+}
+
+.certificate-slider-dot {
+  width: 8px;
+  height: 8px;
+  min-width: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.certificate-slider-dot.active {
+  background: white;
+  transform: scale(1.2);
+}
+
+@media (max-width: 960px) {
+  .certificate-slider-prev,
+  .certificate-slider-next {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+  }
+
+  .certificate-slider-dots {
+    gap: 6px;
+    margin: 0 8px;
+  }
+
+  .certificate-slider-dot {
+    width: 6px;
+    height: 6px;
+    min-width: 6px;
+  }
+}
+
+@media (max-width: 640px) {
+  .certificate-slider-controls {
+    margin-top: 15px;
+    padding-bottom: 8px;
+  }
+
+  .certificate-slider-prev,
+  .certificate-slider-next {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    margin: 0 5px;
+  }
+
+  .certificate-slider-prev svg,
+  .certificate-slider-next svg {
+    width: 16px;
+    height: 16px;
+    position: relative;
+    top: 0;
+  }
+
+  .certificate-slider-dots {
+    gap: 6px;
+    max-width: 120px;
+    padding: 0 3px;
+  }
+
+  .certificate-slider-dot {
+    width: 6px;
+    height: 6px;
+    min-width: 6px;
+  }
+
+  .awards-certificate {
+    padding-bottom: 10px;
+  }
+}
+
+/* Стили для стрелок с анимацией */
+svg[width][height][viewBox*="441.004 13.3218"] {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 0.7s ease-out,
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+svg[width][height][viewBox*="441.004 13.3218"].animate {
+  opacity: 1;
+  transform: translateX(0);
 }
